@@ -1,0 +1,6 @@
+clone repo from
+run command "npm install"
+install db-migrate module to system for migration using command "sudo npm install -g db-migrate"
+edit "database.json" file and save db user and password
+run command "db-migrate up" to migrate schema file
+run server using command "npm start"
