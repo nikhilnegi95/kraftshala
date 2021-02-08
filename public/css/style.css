@@ -1,0 +1,4 @@
+button:focus{
+	box-shadow:none !important;
+	outline: 0;
+}

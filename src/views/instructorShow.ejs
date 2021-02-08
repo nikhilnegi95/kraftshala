@@ -1,0 +1,39 @@
+<div>
+	<%- include('message') -%>
+</div>
+<div class="card">
+	<div class="card-header p-3 text-center">Instructor Show</div>
+	<div class="m-3"><h3>Submitted assignments</h3></div>
+	<div class="card-body">
+    	<table class="table">
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+                <th>Grade</th>
+            </tr>
+            <% if(data.length > 0) { %>
+                <% data.forEach(function(row) { %>
+            	   <tr>
+            		    <td><a href="/student/file/<%= row.question %>">View</a></td>
+            		    <td><a href="/student/file/<%= row.answer %>">View</a></td>
+                        <td>
+                            <% if(row.grade == undefined) { %>
+                                <form action="/instructor/grade" method="post">
+                                    <input type="hidden" name="assignment_id" value="<%= row.id %>">
+                                    <input type="text" id="grade" name="grade" class="form-control" placeholder="set grade A to D" />
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            <% }else { %>
+                                <%= row.grade %>
+                            <% } %>
+                        </td>
+            	   </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td>No data to display</td>
+                </tr>
+            <% } %>
+        </table>
+	</div>
+</div>

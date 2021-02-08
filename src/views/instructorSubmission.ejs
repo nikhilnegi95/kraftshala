@@ -1,0 +1,42 @@
+<div>
+	<%- include('message') -%>
+</div>
+<div class="card">
+	<div class="card-header p-3 text-center">Instructor Submission</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-nav">
+            <a href="/dashboard" class="nav-item nav-link">Assignments</a>
+            <a href="/instructor/submission" class="nav-item nav-link active">Submissions</a>
+        </div>
+        <div class="offset-md-9 col-md-1">
+            <a href="/instructor/logout">Logout</a>
+        </div>
+    </nav>
+	<div class="m-3"><h3>Submitted assignments</h3></div>
+	<div class="card-body">
+    	<table class="table">
+            <tr>
+                <th>Student Name</th>
+                <th>Subject</th>
+                <th>Assignment Name</th>
+                <th>Submission time</th>
+                <th>Action</th>
+            </tr>
+            <% if(data.length > 0) { %>
+                <% data.forEach(function(row) { %>
+            	   <tr>
+            		    <td><%= row.name %></td>
+            		    <td><%= row.subject %></td>
+                        <td><%= row.ass_name %></td>
+                        <td><%= row.deadline %></td>
+                        <td><a href="/instructor/show/<%= row.assignment_id %>" class="btn btn-primary">view</a></td>
+            	   </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td>No data to display</td>
+                </tr>
+            <% } %>
+        </table>
+	</div>
+</div>

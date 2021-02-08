@@ -1,0 +1,46 @@
+<div>
+	<%- include('message') -%>
+</div>
+<div class="card">
+	<div class="card-header p-3 text-center">Student Dashboard</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="navbar-nav">
+			<a href="/student/dashboard" class="nav-item nav-link active">Upcoming Submission</a>
+			<a href="/student/submission" class="nav-item nav-link">Submitted Submission</a>
+		</div>
+        <div class="offset-md-6 col-md-2">
+            <a href="/student/logout" class="float-right">Logout</a>
+        </div>
+	</nav>
+	<div class="m-3"><h3>List of assignments</h3></div>
+	<div class="card-body">
+    	<table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Deadline</th>
+                <th>Question</th>
+                <th>Upload Answer</th>
+            </tr>
+            <% data.forEach(function(row) { %>
+            	<tr>
+            		<td><%= row.name %></td>
+            		<td><%= row.subject %></td>
+            		<td><%= row.deadline %></td>
+            		<td><a href="/student/file/<%= row.question %>">View</a></td>
+            		<td>
+            			<form action="/student/upload/answer" method="post" enctype="multipart/form-data">
+        					<input type="hidden" name="assignment_id" value="<%= row.id %>">
+        					<% if(answers.includes(row.id)) {%>
+        						<button type="submit" class="btn btn-primary" disabled>already submitted</button>
+        					<% }else { %>
+        						<input type="file" id="answer" name="answer" class="form-control" required/>
+        						<button type="submit" class="btn btn-primary">Submit</button>
+        					<% } %>
+            			</form>
+            		</td>
+            	</tr>
+            <% }) %>
+        </table>
+	</div>
+</div>
