@@ -20,7 +20,7 @@
                             <% if(row.grade == undefined) { %>
                                 <form action="/instructor/grade" method="post">
                                     <input type="hidden" name="assignment_id" value="<%= row.id %>">
-                                    <input type="text" id="grade" name="grade" class="form-control" placeholder="set grade A to D" />
+                                    <input type="text" id="grade" name="grade" class="form-control" placeholder="set grade 1 to 10" />
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                             <% }else { %>

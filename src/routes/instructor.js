@@ -136,7 +136,6 @@ router.get('/submission', (req, res) => {
 			return false
 		}
 		else {
-			console.log(rows)
 			res.render('instructorSubmission', {data:rows})
 		}
 	})

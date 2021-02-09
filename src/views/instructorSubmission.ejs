@@ -17,6 +17,7 @@
     	<table class="table">
             <tr>
                 <th>Student Name</th>
+                <th>Student Email</th>
                 <th>Subject</th>
                 <th>Assignment Name</th>
                 <th>Submission time</th>
@@ -26,6 +27,7 @@
                 <% data.forEach(function(row) { %>
             	   <tr>
             		    <td><%= row.name %></td>
+                        <td><%= row.email %></td>
             		    <td><%= row.subject %></td>
                         <td><%= row.ass_name %></td>
                         <td><%= row.deadline %></td>
