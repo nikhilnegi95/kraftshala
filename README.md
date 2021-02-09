@@ -1,4 +1,3 @@
-# kraftshala
 
 ## Installation & Quick Start
 - Clone the repository.
@@ -31,6 +30,7 @@ npm install
 ````shell
 `db-migrate up`
 ````
+- set connection details in `./config/conn.js` file
 - run server using command
 ````
 npm start
